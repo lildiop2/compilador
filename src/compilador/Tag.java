@@ -3,27 +3,35 @@ package compilador;
 public class Tag {
 	 public final static int
 	 //Palavras reservadas
-	 PRG = 256,
+	 RTN = 256,
 	 BEG = 257,
 	 END = 258,
-	 TYPE = 259,
+	 DCL = 259,
 	 INT = 260,
-	 CHAR = 261,
-	 BOOL = 262,
+	 FLOAT= 261,
+	 CHAR = 262,
+	 IF=263,
+	 THEN=264,
+	 ELSE= 265,
+	 RPT = 266,
+	 UNTL=267,
+	 WHILE=268,
+	 DO=269,
+	 READ=270,
+	 WRITE=271,
+	 NOT=272,
+	 OR=273,
+	 AND=274,
+
+
 //	 …
 	 //Operadores e pontuação
 //	 ...
-	 EQ = 288,
 	 GE = 289,
 	 LE = 290,
 	 NE = 291,
 //	 ...
-	 //Outros tokens
-	 NUM = 278,
-	 ID = 279,
-	 AND = 0,
-	 OR = 0,
-	TRUE = 0,
-	FALSE = 0;
-	public static final int IF = 0;
+	//Outros tokens
+	NUM = 278,
+	ID = 279;
 	}

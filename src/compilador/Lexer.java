@@ -24,12 +24,25 @@ public class Lexer {
  throw e;
  }
  //Insere palavras reservadas na HashTable
- reserve(new Word ("if", Tag.IF));
- reserve(new Word ("program", Tag.PRG));
+ reserve(new Word ("routine", Tag.RTN));
  reserve(new Word ("begin", Tag.BEG));
  reserve(new Word ("end", Tag.END));
- reserve(new Word ("type", Tag.TYPE));
+ reserve(new Word ("declare", Tag.DCL));
  reserve(new Word ("int", Tag.INT));
+ reserve(new Word ("float", Tag.FLOAT));
+ reserve(new Word ("char", Tag.CHAR));
+ reserve(new Word ("if", Tag.IF));
+ reserve(new Word ("then", Tag.THEN));
+ reserve(new Word ("else", Tag.ELSE));
+ reserve(new Word ("repeat", Tag.RPT));
+ reserve(new Word ("until", Tag.UNTL));
+ reserve(new Word ("while", Tag.WHILE));
+ reserve(new Word ("do", Tag.DO));
+ reserve(new Word ("read", Tag.READ));
+ reserve(new Word ("write", Tag.WRITE));
+ reserve(new Word ("not", Tag.NOT));
+ reserve(new Word ("or", Tag.OR));
+ reserve(new Word ("and", Tag.AND));
  //...
  }
  /*Lê o próximo caractere do arquivo*/
@@ -53,24 +66,18 @@ public class Lexer {
 	 }
 	 switch(ch){
 	 //Operadores
-	 case '&':
-	 if (readch('&')) return Word.and;
-	 else return new Token('&');
-	 case '|':
-	 if (readch('|')) return Word.or;
-	 else return new Token('|');
 	 case '=':
-	 if (readch('=')) return Word.eq;
-	 else return new Token('=');
+		return new Token('=');
 	 
 	 case '<':
 		 if (readch('=')) return Word.le;
+		 else if (readch('>')) return Word.ne;
 		 else return new Token('<');
 		 case '>':
 		 if (readch('=')) return Word.ge;
 		 else return new Token('>');
 		 }
-		 //Números
+	//Números
 		 if (Character.isDigit(ch)){
 		 int value=0;
 		 do{
@@ -79,7 +86,7 @@ public class Lexer {
 		 }while(Character.isDigit(ch));
 		 return new Num(value);
 		 }
-		//Identificadores
+	//Identificadores
 		 if (Character.isLetter(ch)){
 		 StringBuffer sb = new StringBuffer();
 		 do{
@@ -94,7 +101,7 @@ public class Lexer {
 		 return w;
 		 }
 
-		 //Caracteres não especificados
+	//Caracteres não especificados
 		 Token t = new Token(ch);
 		 ch = ' ';
 		 return t;
