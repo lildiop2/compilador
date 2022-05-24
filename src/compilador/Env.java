@@ -1,5 +1,7 @@
 package compilador;
 
+import java.util.*;
+
 public class Env {
     private Hashtable table; //tabela de símbolos do ambiente
     protected Env prev; //ambiente imediatamente superior

@@ -22,6 +22,7 @@ public class Tag {
 	 NOT=272,
 	 OR=273,
 	 AND=274,
+	 ATB=275,
 
 
 //	 …
@@ -33,5 +34,6 @@ public class Tag {
 //	 ...
 	//Outros tokens
 	NUM = 278,
-	ID = 279;
+	ID = 279,
+	LTR=280;
 	}
