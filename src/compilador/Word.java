@@ -13,7 +13,7 @@ public class Word extends Token {
 	}
 
 	public String toString() {
-		return "" + lexeme;
+		return "<" + this.tag+","+this.lexeme+">";
 	}
 
 	public String getLexeme() {

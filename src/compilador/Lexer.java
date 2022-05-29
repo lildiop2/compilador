@@ -100,17 +100,27 @@ public class Lexer {
 			while (ch!='"') {
 				sb.append(ch);
 				readch();
+				if(ch!=65535) throw new Error("Erro ao identificar literal na linha "+line);
 				
 			}
 			readch();
 			
 			return new Word(sb.toString(), Tag.LTR);
+		case 39:
+			int c=0;
+			readch();
+			if(ch!=39) {
+				c = ch;
+			}
+			if (readch((char) 39))
+				return new Caractere(c);
 			
 		case '%':
 			readch();
 			while (ch!='%') {
 				
 				readch();
+				if(ch!=65535) throw new Error("Erro ao identificar comentario na linha "+line);
 				
 			}
 			readch();

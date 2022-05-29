@@ -8,7 +8,7 @@ public class Flutante extends Token{
 	 this.value = value;
 	 }
 	 public String toString(){
-	 return "" + value;
+		return "<" + this.tag+","+this.value+">";
 	 }
 	}
 

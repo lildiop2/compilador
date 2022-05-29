@@ -8,7 +8,7 @@ public class Inteiro extends Token{
 	 
 	 }
 	 public String toString(){
-	 return "" + value;
+		return "<" + this.tag+","+this.value+">";
 	 }
 
 }
