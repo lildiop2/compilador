@@ -1,13 +1,13 @@
-package compilador;
 
-import java.util.*;
+
+import java.util.Hashtable;
 
 public class Env {
-    private Hashtable table; //tabela de símbolos do ambiente
+    private Hashtable<Token, Integer> table; //tabela de símbolos do ambiente
     protected Env prev; //ambiente imediatamente superior
    
     public Env(Env n){
-    table = new Hashtable(); //cria a TS para o ambiente
+    table = new Hashtable<Token,Integer>(); //cria a TS para o ambiente
     prev = n; //associa o ambiente atual ao anterior
     }
 /*Este método insere uma entrada na TS do ambiente */

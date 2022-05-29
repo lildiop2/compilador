@@ -1,13 +1,15 @@
 package compilador;
 
-import java.io.*;
-import java.util.*;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Hashtable;
 
 public class Lexer {
 	public static int line = 1; // contador de linhas
 	private char ch = ' '; // caractere lido do arquivo
 	private FileReader file;
-	private Hashtable<String, Word> words = new Hashtable();
+	private Hashtable<String, Word> words = new Hashtable<String, Word>();
 
 	/* Método para inserir palavras reservadas na HashTable */
 	private void reserve(Word w) {
@@ -99,8 +101,10 @@ public class Lexer {
 			StringBuffer sb = new StringBuffer();
 			while (ch!='"') {
 				sb.append(ch);
+				
 				readch();
-				if(ch!=65535) throw new Error("Erro ao identificar literal na linha "+line);
+				if(ch==65535) throw new Error("Erro ao identificar literal na linha "+line);
+				
 				
 			}
 			readch();
@@ -120,7 +124,7 @@ public class Lexer {
 			while (ch!='%') {
 				
 				readch();
-				if(ch!=65535) throw new Error("Erro ao identificar comentario na linha "+line);
+				if(ch==65535) throw new Error("Erro ao identificar comentario na linha "+line);
 				
 			}
 			readch();

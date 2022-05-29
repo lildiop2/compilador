@@ -1,15 +1,17 @@
 package compilador;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Hashtable;
 
-public class Main {
+public class Principal {
 
 	public static void main(String[] args) {
 		
 		
-//		String path="C:\\Users\\Abdul Kevin Alexis\\Documents\\compilador\\src\\compilador\\teste2.txt";
+		//String path="C:\\Users\\Abdul Kevin Alexis\\Documents\\compilador\\src\\compilador\\teste2.txt";
+		if(args.length==0) {
+			System.err.println("Usage: java -jar analisadorLexico [arquivo.txt]");
+			System.exit(0);
+		}
 		String path=args[0];
 		try {
 			Lexer lex = new Lexer(path);
