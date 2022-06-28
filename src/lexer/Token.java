@@ -1,4 +1,4 @@
-package compilador;
+package lexer;
 
 import java.util.Objects;
 

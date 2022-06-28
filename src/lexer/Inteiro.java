@@ -1,4 +1,4 @@
-package compilador;
+package lexer;
 
 public class Inteiro extends Token{
 	 public final int value;

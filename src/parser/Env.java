@@ -1,6 +1,9 @@
+package parser;
 
 
 import java.util.Hashtable;
+
+import lexer.Token;
 
 public class Env {
     private Hashtable<Token, Integer> table; //tabela de símbolos do ambiente
